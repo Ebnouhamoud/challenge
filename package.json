@@ -2,14 +2,37 @@
   "name": "challenge",
   "version": "1.0.0",
   "description": "coding challenge",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "cross-env NODE_ENV=development concurrently \"nodemon src/index.js\" \"webpack-dev-server --hot\""
   },
   "author": "walmex-team",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-scss": "^1.0.11",
+    "concurrently": "^6.2.0",
+    "css-loader": "^5.2.6",
+    "nodemon": "^2.0.7",
+    "react-hot-loader": "^4.13.0",
+    "sass": "^1.34.0",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

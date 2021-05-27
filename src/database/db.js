@@ -40,9 +40,10 @@ module.exports = {
         ],
         Erica: [
             'tv'
+            ,'chips'
         ],
         Tina: [
             'tv'
         ]
-    }
+    },
 }

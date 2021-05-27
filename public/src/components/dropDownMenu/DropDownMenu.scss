@@ -1,0 +1,63 @@
+.DropdownMenu {
+  font-family: 'Arial';
+  border-collapse:collapse;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  button:hover {
+    /*   letter-spacing: 0.8em; */
+      background-color: #F08C99;
+    }
+    
+    button {
+      padding: 1em 2em;
+      background-color: rgb(65, 96, 165);
+      color: white;
+      font-size: 0.7rem;
+      text-align: center;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+     
+    }
+    button:hover {
+      background-color: rgba(74, 110, 189, 0.7);
+      
+    }
+    button:active,
+    button:focus {
+      outline: none;
+    }
+
+    ul {
+      position: absolute;
+      overflow: auto;
+      min-width: 265px;
+      margin-top: 3.2em;
+      padding-left: 0;
+      width:20em;
+      list-style: none;
+      border-radius: 6px;  
+      background-color: #f4f4f4;
+      cursor: pointer;
+      li {
+        padding: 0.5em 1.5em;
+        font-size: 0.8rem;
+        font-family: 'Arial';
+        color:#555
+      }
+      li:hover {
+        background-color: #00cccc;
+        color: black;
+      }
+      li:first-child {
+        border-radius: 6px 6px 0 0;
+      }
+
+      li:last-child {
+        border-radius: 0 0 6px 6px;
+      }
+    }
+}
+
+

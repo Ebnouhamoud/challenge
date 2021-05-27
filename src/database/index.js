@@ -21,14 +21,70 @@ const getUsers = () => {
     return mockDBCall(dataAccessMethod);
 };
 
-const getListOfAgesOfUsersWith = (item) => {
+const getListOfAgesOfUsersWith = (itemToLookup) => {
+    
     const dataAccessMethod = () => {
-        // fill me in :)
+       const usersObjByUsername = generateUsersByUsername()
+       const listOfUsers = generateListofUsersByItem(itemToLookup)
+       return generateUsersAgeFrequency(usersObjByUsername, listOfUsers)
     }
     return mockDBCall(dataAccessMethod);
 }
 
+const getItems = () => {
+    const dataAccessMethod = () => {
+        const items=[]
+        const seenItems={}
+        const data = db.itemsOfUserByUsername
+        for(const user in data) {
+            for(const item of data[user]){
+                if(!seenItems[item]) {
+                    items.push(item)
+                    seenItems[item] = true
+                }
+            }
+        }
+        return items
+    }
+    return mockDBCall(dataAccessMethod)
+}
+
+const generateUsersAgeFrequency = (usersObjByUsername,listOfUsers) => {
+    const ageFrequencyObj = {}
+    listOfUsers.forEach(username => {
+        const usersAge = usersObjByUsername[username]
+        if(ageFrequencyObj[usersAge]) ageFrequencyObj[usersAge] +=1
+        else ageFrequencyObj[usersAge] = 1
+    })
+    const ageFrequencyList = []
+    for(const age in ageFrequencyObj) {
+        const frequency = ageFrequencyObj[age]
+        ageFrequencyList.push({age,frequency})
+    }
+    return ageFrequencyList
+}
+
+const generateListofUsersByItem = (itemToLookup) => {
+    const users = []
+    for(const user in db.itemsOfUserByUsername) {
+        for(const item of db.itemsOfUserByUsername[user]) {
+            if(item === itemToLookup) users.push(user)
+        }
+    }
+    return users
+}
+
+const generateUsersByUsername = () => {
+    const usersObj = {}
+    for(const userId in db.usersById) {
+        const username = db.usersById[userId].username
+        usersObj[username] = db.usersById[userId].age
+    }
+    return usersObj
+}
+
 module.exports = {
     getUsers,
-    getListOfAgesOfUsersWith
+    getListOfAgesOfUsersWith,
+    getItems
 };
