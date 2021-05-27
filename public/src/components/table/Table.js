@@ -16,8 +16,8 @@ export default function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {bodyData && bodyData.map(row => (
-            <tr >
+          {bodyData && bodyData.map((row,i) => (
+            <tr key={i}>
               {Object.values(row).map(item =>(
                  <td key={item}>{item}</td>
               ))}

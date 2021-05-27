@@ -1,0 +1,26 @@
+.Button {
+  margin-bottom: 0.3em;
+  button{
+    padding: 0.5em 1em;
+    background-color: #17acac;
+    color: white;
+    font-size: 0.9em;
+    font-family: 'Arial';
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+ 
+  button:hover {
+    background-color: #17acaccb;
+    
+  }
+  button:active,
+  button:focus {
+    outline: none;
+  }
+  .btn-name {
+    margin-right: 0.2em;
+  }
+}

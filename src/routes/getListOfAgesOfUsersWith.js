@@ -8,7 +8,7 @@ const getListOfAgesOfUsersWithHandler = async (request, response) => {
         return response.status(200).send(JSON.stringify(data));       
     } catch (error) {
         // to be filled 
-    }
+    };
 };
 
 module.exports = (app) => {

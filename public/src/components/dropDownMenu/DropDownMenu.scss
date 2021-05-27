@@ -4,36 +4,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  button:hover {
-    /*   letter-spacing: 0.8em; */
-      background-color: #F08C99;
-    }
-    
-    button {
-      padding: 1em 2em;
-      background-color: rgb(65, 96, 165);
-      color: white;
-      font-size: 0.7rem;
-      text-align: center;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-     
-    }
-    button:hover {
-      background-color: rgba(74, 110, 189, 0.7);
-      
-    }
-    button:active,
-    button:focus {
-      outline: none;
-    }
 
     ul {
       position: absolute;
       overflow: auto;
       min-width: 265px;
-      margin-top: 3.2em;
+      margin-top: 1.2em;
       padding-left: 0;
       width:20em;
       list-style: none;
@@ -57,6 +33,24 @@
       li:last-child {
         border-radius: 0 0 6px 6px;
       }
+    }
+    .caret {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #ffffff transparent transparent transparent;
+      display: inline-block;
+      margin-left: 6px;
+      top: -3px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: all .25s ease-in;
+    }
+    
+    .open-caret {
+      transform: rotate(180deg);
+      transition: all .25s ease-out;
     }
 }
 

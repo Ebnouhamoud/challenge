@@ -8,8 +8,7 @@ const port = process.env.PORT || 3000;
 
 // register routes
 registerRoutes(app);
-app.use('*',(req,res) => res.sendFile(path.resolve(__dirname, '../public/index.html')))
-
+app.use('/',(req,res) => res.sendFile(path.resolve(__dirname, '../public/index.html')));
 // create server start method
 const start = () => {
     return new Promise((resolve, reject) => {
@@ -21,7 +20,7 @@ const start = () => {
     }).catch((error) => {
         console.log(`failed to start server => ${error.message}`)
     });
-}
+};
 
 module.exports = start;
 
