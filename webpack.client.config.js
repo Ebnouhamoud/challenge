@@ -1,11 +1,11 @@
 const path = require('path');
-const  webpack  = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 console.log('webpack mode:', process.env.NODE_ENV);
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './public/src/index.js',
+  entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -17,9 +17,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
         },
       },
       {
@@ -29,20 +26,18 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: path.resolve(__dirname, 'public', 'favicon.png'),
+    }),
+  ],
   devServer: {
-    publicPath: '/dist/',
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 8080,
     proxy: {
       '/': 'http://localhost:3000',
     },
-    watchOptions: {
-      poll: true,
-      ignored: '/node_modules/',
-    },
-    hot: true,
-    inline:true
   },
-  
-  plugins:[
-    new webpack.HotModuleReplacementPlugin(),
-  ]
 };

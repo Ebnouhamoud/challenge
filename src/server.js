@@ -10,6 +10,20 @@ const port = process.env.PORT || 3000;
 registerRoutes(app);
 app.use('/',(req,res) => res.sendFile(path.resolve(__dirname, '../public/index.html')));
 // create server start method
+
+// Global error handler
+app.use((err, req, res, next) => {
+    const defaultErr = {
+      status: 400,
+      message: 'An error occurred',
+    };
+    
+    const errorObj = Object.assign({}, defaultErr);
+    errorObj.message = err.message;
+    const errorStatus = err.status || 404;
+    return res.status(errorStatus).json(errorObj);
+})
+
 const start = () => {
     return new Promise((resolve, reject) => {
         // start the server
