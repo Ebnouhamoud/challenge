@@ -9,6 +9,7 @@ export default function DemographicTable() {
   const [items,setItems] = useState([]);
   const [demographic, setDemographic] = useState([]);
   const [selectedItem,setSelectedItem] = useState(null);
+  
   useEffect(()=> {
     apiService.getItems().then(res => setItems(res));
   },[]);

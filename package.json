@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev-server": "cross-env NODE_ENV=development nodemon src/index.js",
-    "dev-client": "cross-env NODE_ENV=development webpack serve --config webpack.client.config.js",
+    "dev-client": "cross-env NODE_ENV=development webpack serve --config webpack.client.config.js --open",
     "start": "concurrently \"npm run dev-server\" \"npm run dev-client\""
   },
   "author": "walmex-team",

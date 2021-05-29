@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './UsersTable.scss'
 import Table from '../../components/table/Table.js'
 import apiService from '../../services/apiService.js'
 

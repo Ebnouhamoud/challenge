@@ -1,12 +1,9 @@
 import React from 'react'
 
-import "./Table.scss"
-
 export default function Table(props) {
   const {headerList, bodyData} = props
-  console.log(bodyData)
   return (
-    <div>
+    <div className="Table">
       <table>
         <thead>
           <tr>

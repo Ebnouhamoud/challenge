@@ -1,7 +1,6 @@
-import React, { useEffect, useState,useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 import Button from '../button/Button'
-import './DropDownMenu.scss'
 
 export default function DropDownMenu(props) {
   const {selectItem, itemsList} = props;

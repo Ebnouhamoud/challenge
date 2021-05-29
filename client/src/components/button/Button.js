@@ -1,9 +1,7 @@
 import React from 'react'
 
-import './Button.scss'
-
-export default function Button({handleClick,name, children}) {
-  // console.log('hi llre')
+export default function Button(props) {
+  const {handleClick, name, children} = props
   return (
     <div className="Button">
         <button onClick={()=> handleClick()}> 
