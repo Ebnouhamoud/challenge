@@ -7,7 +7,7 @@ const getListOfAgesOfUsersWithHandler = async (request, response, next) => {
         const data = await mockDBCalls.getListOfAgesOfUsersWith(itemToLookup);
         return response.status(200).send(JSON.stringify(data));       
     } catch (error) {
-        return next(error);
+        return next(new Error("Couldn't get list of ages of users data"));
     };
 };
 

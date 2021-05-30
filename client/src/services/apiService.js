@@ -2,35 +2,46 @@ const routs = {
   users:'/users',
   demographic:'/users/age?item=',
   items:'./items'
-} 
+};
 
 export default {
-  getUsers: async () => {
+  getUsers: async (handleSuccess, handleError) => {
     try {
       let usersList = await fetch(routs.users);
-      usersList = await usersList.json()
-      return usersList
+      if(!usersList.ok) {
+        usersList = await usersList.json();
+        throw Error(usersList.message);
+      }
+      usersList = await usersList.json();
+      return handleSuccess(usersList);
     } catch (error) {
-      
-      console.log(error)
-    }
+      return handleError(error.message);
+    };
   },
-  getDemographic: async (perams) => {
+  getDemographic: async (perams, handleSuccess, handleError) => {
     try {
-      let demographicList = await fetch(routs.demographic + perams)
-      demographicList = await demographicList.json()
-      return demographicList
+      let demographicList = await fetch(routs.demographic + perams);
+      if(!demographicList.ok) {
+        demographicList = await demographicList.json();
+        throw Error(demographicList.message);
+      };
+      demographicList = await demographicList.json();
+      return handleSuccess(demographicList);
     } catch (error) {
-      
-    }
+      return handleError(error);
+    };
   },
-  getItems: async () => {
+  getItems: async (handleSuccess, handleError) => {
     try {
-      let itemsList = await fetch(routs.items)
-      itemsList = itemsList.json()
-      return itemsList
+      let itemsList = await fetch(routs.items);
+      if(!itemsList.ok) {
+        itemsList = await itemsList.json();
+        throw Error(itemsList.message);
+      }
+      itemsList = await itemsList.json();
+      return handleSuccess(itemsList);
     } catch (error) {
-      
-    }
+      return handleError(error);
+    };
   }
-}
+};

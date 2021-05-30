@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export default function Table(props) {
-  const {headerList, bodyData} = props
+  const {headerList, bodyData} = props;
   return (
     <div className="Table">
       <table>

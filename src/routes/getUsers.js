@@ -6,7 +6,7 @@ const getUsersHandler = async (request, response, next) => {
         const data = await mockDBCalls.getUsers();
         return response.status(200).send(JSON.stringify(data));
     } catch (error) {
-        return next(error);
+        return next(new Error("Couldn't get users data"))
     }
 };
 
